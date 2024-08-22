@@ -36,6 +36,10 @@ def main():
             item.update(dt)
 
         for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.has_collided(shot):
+                    asteroid.split()
+                    shot.kill()
             if player.has_collided(asteroid):
                 print("Game Over!")
                 return
